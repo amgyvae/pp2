@@ -29,3 +29,13 @@ current_datetime_without_microseconds = current_datetime.replace(microsecond=0)
 
 print("Original Datetime:", current_datetime)
 print("Datetime without Microseconds:", current_datetime_without_microseconds)
+
+#4th task
+from datetime import datetime
+
+date1 = datetime(2024, 2, 14, 10, 0, 0)
+date2 = datetime(2024, 2, 21, 9, 30, 0)
+
+difference_seconds = (date2 - date1).total_seconds()
+
+print("Difference between the two dates in seconds:", difference_seconds)
