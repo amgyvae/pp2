@@ -17,3 +17,16 @@ def funkEven(n):
 n = int(input())
 cntEven = funkEven(n)
 print(*cntEven, sep=", ")
+
+#3rd task
+def funkDiv(n):
+    for i in range(n + 1):
+        if i % 3 == 0 and i % 4 == 0:
+            yield i
+
+n = int(input())
+cntDiv = funkDiv(n)
+for i in cntDiv:
+    print(i)
+
+#4th task
