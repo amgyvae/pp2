@@ -23,3 +23,12 @@ Sp = (s * l ** 2) / (4 * math.tan(math.pi / s))
 print("Input number of sides:", s)
 print("Input the length of a side:", l)
 print("The area of the polygon is:", Sp)
+
+#4th task
+bl = 5
+H = 6
+
+Sprl = bl * H
+print("Length of base:", bl)
+print("Height of parallelogram:", H)
+print("Expected Output:", Sprl)
