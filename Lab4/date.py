@@ -19,3 +19,13 @@ tomorrow = current_date + timedelta(days=1)
 print("Yesterday:", yesterday)
 print("Today:", current_date)
 print("Tomorrow:", tomorrow)
+
+#3rd task
+from datetime import datetime
+
+current_datetime = datetime.now()
+
+current_datetime_without_microseconds = current_datetime.replace(microsecond=0)
+
+print("Original Datetime:", current_datetime)
+print("Datetime without Microseconds:", current_datetime_without_microseconds)
