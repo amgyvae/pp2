@@ -39,3 +39,13 @@ b = int(input())
 for i in funkSquares(a, b):
     print(i)
 
+#5th task
+def funkDown(n):
+    while n >= 0:
+        yield n
+        n -= 1
+
+n = int(input())
+cntdown = funkDown(n)
+for i in cntdown:
+    print(i)
