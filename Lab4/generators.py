@@ -30,3 +30,12 @@ for i in cntDiv:
     print(i)
 
 #4th task
+def funkSquares(a, b):
+    for i in range(a, b + 1):
+        yield i ** 2
+
+a = int(input())
+b = int(input())
+for i in funkSquares(a, b):
+    print(i)
+
