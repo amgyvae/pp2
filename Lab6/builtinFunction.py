@@ -1,4 +1,7 @@
 import time
+from math import sqrt
+from functools import reduce
+
 #1
 def multiply_list(lst):
     return reduce(lambda x, y: x*y, lst)
