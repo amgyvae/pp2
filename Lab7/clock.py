@@ -1,5 +1,4 @@
 import pygame
-import sys
 import datetime
 from math import radians, sin, cos
 
@@ -34,12 +33,13 @@ def draw_hand(image, angle, scale, offset):
     rotated_image = pygame.transform.rotate(scaled_image, angle)
     new_rect = rotated_image.get_rect(center=CENTER + offset)
     SCREEN.blit(rotated_image, new_rect.topleft)
+    
+done = False
 
-while True:
+while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
+            done = True
 
     SCREEN.blit(background_image, background_rect.topleft)
 
@@ -53,7 +53,7 @@ while True:
     draw_hand(hand_image, -hour_angle, 0.3, pygame.math.Vector2(0, 0)) 
 
     pygame.display.flip()
-    clock.tick(30)  
+    clock.tick(60)  
 """
 
 #etot code esli netu pictures
