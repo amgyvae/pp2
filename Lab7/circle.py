@@ -1,40 +1,52 @@
 import pygame
-import sys
 
 pygame.init()
 
-screen_width, screen_height = 800, 600
+screen_width, screen_height = 900, 400
 screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption('Ball')
-
-white = (255, 255, 255)
-red = (255, 0, 0)
+pygame.display.set_caption('Moving Ball')
 
 ball_radius = 25
-ball_x, ball_y = screen_width // 2, screen_height // 2  
-move_distance = 20 
 
-running = True
-while running:
+white = (255, 255, 255)
+black = (0, 0, 0)
+red = (213, 50, 80)
+green = (0, 255, 0)
+blue = (50, 153, 213)
+background = green
+
+x = 50
+y = 50
+
+done = True
+
+while done:
+    pygame.display.update()
+    screen.fill((230, 230, 230))
+    # pygame.display.flip()
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_UP and ball_y - move_distance - ball_radius > 0:
-                ball_y -= move_distance
-            elif event.key == pygame.K_DOWN and ball_y + move_distance + ball_radius < screen_height:
-                ball_y += move_distance
-            elif event.key == pygame.K_LEFT and ball_x - move_distance - ball_radius > 0:
-                ball_x -= move_distance
-            elif event.key == pygame.K_RIGHT and ball_x + move_distance + ball_radius < screen_width:
-                ball_x += move_distance
+            done = True
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+            background = blue
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_d:
+            x += 10
+            # background = green
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_a:
+            x -= 10
+            # background = green
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_s:
+            y += 10
+            # background = green
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_w:
+            y -= 10
+            # background = green
 
-    screen.fill(white)
+    #pygame.draw.rect(screen, background, pygame.Rect(x, y, 50, 50))
+    pygame.draw.circle(screen, background, (x, y), ball_radius)
+    pygame.display.update()
+    # pygame.draw.circle(screen, background, (100, 100), 30)
 
-    pygame.draw.circle(screen, red, (ball_x, ball_y), ball_radius)
-
-    pygame.display.flip()
-
-pygame.quit()
-sys.exit()
+print("Finished")
 
