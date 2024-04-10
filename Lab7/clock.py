@@ -62,11 +62,12 @@ def draw_hand(angle, length, color):
     end_pos = (CENTER[0] + length * sin(angle_rad), CENTER[1] - length * cos(angle_rad))
     pygame.draw.line(SCREEN, color, CENTER, end_pos, HAND_WIDTH)
 
-while True:
+done = False
+
+while not done:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
+            done = True
 
     SCREEN.blit(background_image, background_rect.topleft)
 
