@@ -27,6 +27,7 @@ def play_music(track_number):
     pygame.mixer.music.load(tracks[track_number])
     pygame.mixer.music.play()
 
+
 def draw_buttons():
     pygame.draw.rect(screen, button_color, play_rect)
     pygame.draw.rect(screen, button_color, stop_rect)
@@ -45,31 +46,29 @@ def draw_buttons():
     prev_text = font.render("Previous", True, text_color)
     screen.blit(prev_text, prev_rect.move(30, 5))
 
+
 done = False
 while not done:
     screen.fill(background_color)
 
-    draw_buttons()
+    #draw_buttons()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
-        elif event.type == pygame.MOUSEBUTTONDOWN:
-            if play_rect.collidepoint(event.pos):
-                if pygame.mixer.music.get_busy():
-                    pygame.mixer.music.pause()
-                else:
-                    pygame.mixer.music.unpause()
-            elif stop_rect.collidepoint(event.pos):
-                pygame.mixer.music.stop()
-            elif next_rect.collidepoint(event.pos):
+        elif event.type == pygame.KEYUP:
+            if event.key == pygame.K_w:
+                pygame.mixer.music.pause()
+            elif event.key == pygame.K_q:
+                pygame.mixer.music.unpause()
+                pygame.mixer.music.set_volume(1)
+            elif event.key == pygame.K_e:
                 current_track = (current_track + 1) % len(tracks)
                 play_music(current_track)
-            elif prev_rect.collidepoint(event.pos):
+            elif event.key == pygame.K_r:
                 current_track = (current_track - 1) % len(tracks)
                 play_music(current_track)
 
     pygame.display.flip()
 
 pygame.quit()
-
