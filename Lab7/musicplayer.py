@@ -27,31 +27,9 @@ def play_music(track_number):
     pygame.mixer.music.load(tracks[track_number])
     pygame.mixer.music.play()
 
-
-def draw_buttons():
-    pygame.draw.rect(screen, button_color, play_rect)
-    pygame.draw.rect(screen, button_color, stop_rect)
-    pygame.draw.rect(screen, button_color, next_rect)
-    pygame.draw.rect(screen, button_color, prev_rect)
-
-    play_text = font.render("Play/Pause", True, text_color)
-    screen.blit(play_text, play_rect.move(10, 5))
-
-    stop_text = font.render("Stop", True, text_color)
-    screen.blit(stop_text, stop_rect.move(50, 5))
-
-    next_text = font.render("Next", True, text_color)
-    screen.blit(next_text, next_rect.move(50, 5))
-
-    prev_text = font.render("Previous", True, text_color)
-    screen.blit(prev_text, prev_rect.move(30, 5))
-
-
 done = False
 while not done:
     screen.fill(background_color)
-
-    #draw_buttons()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
