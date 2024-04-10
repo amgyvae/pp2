@@ -45,15 +45,15 @@ def draw_buttons():
     prev_text = font.render("Previous", True, text_color)
     screen.blit(prev_text, prev_rect.move(30, 5))
 
-running = True
-while running:
+done = False
+while not done:
     screen.fill(background_color)
 
     draw_buttons()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+            done = True
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if play_rect.collidepoint(event.pos):
                 if pygame.mixer.music.get_busy():
