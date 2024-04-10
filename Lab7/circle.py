@@ -18,9 +18,9 @@ background = green
 x = 50
 y = 50
 
-done = True
+done = False
 
-while done:
+while not done:
     pygame.display.update()
     screen.fill((230, 230, 230))
     # pygame.display.flip()
