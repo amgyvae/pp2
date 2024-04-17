@@ -63,7 +63,7 @@ def gameSnake():
 
         while game_close:
             screen.fill(white)
-            message("Looser, r - repeat, c - close", red)
+            message("Looser, r - repeat, c - close. Your score is: " + str(lenght_of_snake - 1), red)
             pygame.display.update()
 
             for event in pygame.event.get():
