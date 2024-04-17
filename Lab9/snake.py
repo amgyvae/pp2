@@ -7,8 +7,6 @@ display_width = 900
 display_height = 400
 
 screen = pygame.display.set_mode((display_width, display_height))
-icon = pygame.image.load("icons/icons8-game-16.png")
-pygame.display.set_icon(icon)
 pygame.display.set_caption("Snake")
 
 done = False
