@@ -1,6 +1,6 @@
 import psycopg2
 
-conn = psycopg2.connect(database="defense", user="alex", password="1234")
+conn = psycopg2.connect(database="defense", user="checker", password="qwerty")
 cur = conn.cursor()
 
 cur.execute('''CREATE TABLE IF NOT EXISTS phonebook1
